@@ -77,8 +77,8 @@ label_settings = SubResource("LabelSettings_kje13")
 [node name="Play" type="Button" parent="."]
 offset_left = 105.0
 offset_top = 101.0
-offset_right = 176.0
-offset_bottom = 132.0
+offset_right = 180.0
+offset_bottom = 135.0
 theme = ExtResource("5_l27n8")
 text = "PLAY"
 
