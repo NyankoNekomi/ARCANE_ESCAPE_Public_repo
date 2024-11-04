@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://fviriq8632xq"
+path="res://.godot/imported/survival_level.dialogue-aaded55b85a8d8f250b3db95e632a0ed.tres"
+
+[deps]
+
+source_file="res://instruction_dialogue/survival_level.dialogue"
+dest_files=["res://.godot/imported/survival_level.dialogue-aaded55b85a8d8f250b3db95e632a0ed.tres"]
+
+[params]
+
+defaults=true

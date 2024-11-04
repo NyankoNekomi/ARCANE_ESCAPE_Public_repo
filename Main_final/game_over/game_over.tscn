@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://baffxkixggdsk"]
+
+[ext_resource type="Script" path="res://Main_final/game_over/game_over.gd" id="1_0jjcp"]
+[ext_resource type="FontFile" uid="uid://07ltwgbq47i4" path="res://assets/font/Kenney Pixel.ttf" id="1_15ut2"]
+[ext_resource type="PackedScene" uid="uid://d280evop87j24" path="res://gui/replay.tscn" id="3_8frvx"]
+[ext_resource type="PackedScene" uid="uid://cniki3fob2hrs" path="res://gui/quit.tscn" id="4_tek3m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt04d"]
+font = ExtResource("1_15ut2")
+font_size = 41
+font_color = Color(0.744741, 0.744741, 0.744741, 1)
+outline_size = 10
+outline_color = Color(0.119712, 0.144561, 0.229543, 1)
+shadow_size = 5
+shadow_color = Color(0.985869, 0.985869, 0.985869, 0)
+
+[node name="game_over" type="Node2D"]
+position = Vector2(-1, -17)
+script = ExtResource("1_0jjcp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 8.05
+anchor_bottom = 4.4
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.324922, 0.164811, 0.290139, 0.309804)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = 26.0
+offset_right = 201.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_tt04d")
+
+[node name="Button" parent="." instance=ExtResource("3_8frvx")]
+
+[node name="Quit" parent="." instance=ExtResource("4_tek3m")]

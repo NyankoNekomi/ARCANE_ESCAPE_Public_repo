@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxu5ejbujdyuq"]
+
+[ext_resource type="Texture2D" uid="uid://whbv72u37ysm" path="res://scenes/ability/player2/tile_0128.png" id="1_j3h3w"]
+
+[node name="Arrow_pointer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_j3h3w")

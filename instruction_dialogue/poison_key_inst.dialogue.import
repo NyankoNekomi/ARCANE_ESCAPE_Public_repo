@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://iedsx2x6cxdx"
+path="res://.godot/imported/poison_key_inst.dialogue-c036c5ad4eeeaad3572003d22b7c81b2.tres"
+
+[deps]
+
+source_file="res://instruction_dialogue/poison_key_inst.dialogue"
+dest_files=["res://.godot/imported/poison_key_inst.dialogue-c036c5ad4eeeaad3572003d22b7c81b2.tres"]
+
+[params]
+
+defaults=true

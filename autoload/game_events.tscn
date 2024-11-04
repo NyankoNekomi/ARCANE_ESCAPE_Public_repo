@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://mw8v0ot6rp25"]
+
+[sub_resource type="GDScript" id="GDScript_74xlq"]
+script/source = "extends Node
+
+signal increment_vial_collected(number:int)
+
+signal spend_vial(number:int)
+
+func emit_increment_vial_collected(number:int):
+	increment_vial_collected.emit(number)
+	
+func emit_spend_vial(number:int):
+	spend_vial.emit(number)
+"
+
+[node name="GameEvents" type="Node"]
+script = SubResource("GDScript_74xlq")

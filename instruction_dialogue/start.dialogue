@@ -1,0 +1,20 @@
+~ Begining_dialogue
+
+Dungeon_Master: [[Hi|Hello|Howdy]], You and your party members have been trapped.
+Dungeon_Master: Defeat the enemy and find your way
+
+if DialogueSceneGlobal.instruction_read == false:
+	wizard: We are trapped here forever!!
+	Knight: Don't Panic!! We will get through this together.
+	Knight: I have a hard armour and steel. I can defeat enemies.
+	Use WASD to move the knight
+	To attack with sword Press 'E key'
+	wizard: I can cast powerful spell but I need gold coins to cast each spell
+	To move the wizard press the arrow keys on the key board or joystick.
+	Wizard can cast powerful spell when it has the gold coins. Press Space to activate the spell.
+	Find the icon with book to get hints
+
+	Dungeon_Master: Goodluck with the escape *evil laugh*
+=> END
+
+	set DialogueSceneGlobal.instruction_read = true

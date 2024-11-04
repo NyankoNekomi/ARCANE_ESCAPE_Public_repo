@@ -1,0 +1,17 @@
+~ knight_and_wizard_conversation
+if DialogueSceneGlobal.instruction_read == false:
+	wizard: We are trapped here forever!!
+	Knight: Don't Panic!! We will get through this together.
+	Knight: I have a hard armour and steel. I can defeat enemies.
+	Use WASD to move the knight
+	To atatck with sword Press 'E key'
+	wizard: I can cast powerful spell but I need gold coins to cast each spell
+	To move the wizard press the arrow keys on the key board or joystick.
+	Wizard can cast powerful spell when it has the gold coins.
+	Find the icon with book to get hints
+
+	Dungeon_Master: Goodluck with the escape *evil laugh*
+=> END
+
+	set DialogueSceneGlobal.instruction_read = true
+	

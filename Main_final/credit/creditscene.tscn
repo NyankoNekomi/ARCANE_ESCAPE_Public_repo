@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://nmvx6qbwo61v"]
+
+[ext_resource type="Script" path="res://Main_final/credit/creditscene.gd" id="1_pj83h"]
+[ext_resource type="Texture2D" uid="uid://bd2ngwrwcv4ls" path="res://gui/GUI1.png" id="2_oqj36"]
+[ext_resource type="FontFile" uid="uid://07ltwgbq47i4" path="res://assets/font/Kenney Pixel.ttf" id="3_0kcla"]
+
+[node name="Creditscene" type="Node2D"]
+position = Vector2(100, 19)
+script = ExtResource("1_pj83h")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 133.0
+offset_bottom = 144.0
+texture = ExtResource("2_oqj36")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_direction = 1
+layout_mode = 1
+offset_left = 15.0
+offset_top = 8.0
+offset_right = 117.0
+offset_bottom = 128.0
+theme_override_fonts/normal_font = ExtResource("3_0kcla")
+bbcode_enabled = true
+text = "[center][font =res://assets/font/Kenney Pixel.ttf] [font_size=20
+]CREDITS:
+Developed by
+Sharmishtha Sen
+
+Mentors:
+Carlo Tolention
+Moon Hoang
+Jerermy Parker
+Jadd Zayed
+
+RMIT UNIVERSITY 2024"
+autowrap_mode = 2
+tab_size = 1
+context_menu_enabled = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 1
+
+[node name="close" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = -2.0
+offset_right = 113.0
+offset_bottom = 29.0
+text = "x"
+
+[connection signal="pressed" from="Control/close" to="." method="_on_close_pressed"]

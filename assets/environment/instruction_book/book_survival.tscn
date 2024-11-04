@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq4aqxjv8w42w"]
+
+[ext_resource type="Script" path="res://assets/environment/instruction_book/book_survival.gd" id="1_vo5q8"]
+[ext_resource type="Texture2D" uid="uid://dtew5ag7qadv0" path="res://assets/environment/instruction_book/teleport-book.png" id="2_i83b2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8btp"]
+radius = 44.3847
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mtkd"]
+font_size = 17
+
+[node name="book_survival" type="Node2D"]
+script = ExtResource("1_vo5q8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_i83b2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_c8btp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = 37.0
+offset_right = 73.0
+offset_bottom = 57.0
+text = "Press Q to interact"
+label_settings = SubResource("LabelSettings_4mtkd")
+visible_characters_behavior = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

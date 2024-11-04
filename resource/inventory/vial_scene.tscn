@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqonx4e23vqyi"]
+
+[ext_resource type="Script" path="res://resource/inventory/vial_scene.gd" id="1_7nv4u"]
+[ext_resource type="Texture2D" uid="uid://bolllhlnh2cxm" path="res://assets/collectable/coin_1.png" id="1_t2iia"]
+[ext_resource type="Texture2D" uid="uid://c3kilsyraw4d" path="res://assets/collectable/coin_2.png" id="2_1ykgx"]
+[ext_resource type="Texture2D" uid="uid://bo6876evjlqex" path="res://assets/collectable/coin_3.png" id="3_np8nb"]
+[ext_resource type="Texture2D" uid="uid://bavffmef0l6n5" path="res://assets/collectable/coin_4.png" id="4_yli6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ih7n0"]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aog4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t2iia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ykgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_np8nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yli6w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="XP_vial" type="Node2D"]
+script = ExtResource("1_7nv4u")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ih7n0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aog4e")
+autoplay = "default"
+frame_progress = 0.0794803
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_player_body_entered"]

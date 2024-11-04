@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dvcj5eb1s1tsw"
+path="res://.godot/imported/light_mechanic_healing.dialogue-6b7c926df1a0768bc51270d7922af544.tres"
+
+[deps]
+
+source_file="res://instruction_dialogue/light_mechanic_healing.dialogue"
+dest_files=["res://.godot/imported/light_mechanic_healing.dialogue-6b7c926df1a0768bc51270d7922af544.tres"]
+
+[params]
+
+defaults=true

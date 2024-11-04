@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://whv54ixamegb"]
+
+[ext_resource type="Script" path="res://enemy/basic_enemy.gd" id="1_c3sme"]
+[ext_resource type="Texture2D" uid="uid://b885jsiog5s43" path="res://enemy/tile_0108.png" id="1_wxpvx"]
+[ext_resource type="PackedScene" uid="uid://dv3lv7a431x1a" path="res://scenes/Component/health_component.tscn" id="2_2d5js"]
+[ext_resource type="PackedScene" uid="uid://d33n78bhuugwc" path="res://scenes/Component/xp_vial_drop.tscn" id="3_x5bks"]
+[ext_resource type="PackedScene" uid="uid://cy05qlpnghvfc" path="res://scenes/Component/hurt_box_componenet.tscn" id="5_y4u11"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kn0l"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqmd8"]
+radius = 9.05539
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmsyn"]
+
+[node name="BasicEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 46
+script = ExtResource("1_c3sme")
+
+[node name="healthComponent" parent="." instance=ExtResource("2_2d5js")]
+Maxhealth = 20.0
+
+[node name="XPVialDrop" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_x5bks")]
+health_component = NodePath("../healthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wxpvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7kn0l")
+
+[node name="HurtBoxComponenet" parent="." node_paths=PackedStringArray("healthComponenet") instance=ExtResource("5_y4u11")]
+collision_mask = 38
+healthComponenet = NodePath("../healthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponenet"]
+shape = SubResource("CircleShape2D_oqmd8")
+debug_color = Color(0.788235, 0.341176, 0.67451, 0.419608)
+
+[node name="Vvisibility_box" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vvisibility_box"]
+shape = SubResource("CircleShape2D_hmsyn")
+debug_color = Color(0.347663, 0.606962, 0.367003, 0.42)
+
+[connection signal="area_entered" from="Vvisibility_box" to="." method="_on_vvisibility_box_area_entered"]
+[connection signal="area_exited" from="Vvisibility_box" to="." method="_on_vvisibility_box_area_exited"]

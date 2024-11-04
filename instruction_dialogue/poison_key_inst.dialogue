@@ -1,0 +1,9 @@
+~ posion_key_inst
+if DialogueSceneGlobal.book_read1 == false:
+	This dungeon floor is filled with poison. Avoid the poison or you will have to restart the game.
+
+	There are hidden key that will open the gate to the new area.
+
+	Defeat the enemy and wish you success.
+	set DialogueSceneGlobal.book_read1 = true
+=> END

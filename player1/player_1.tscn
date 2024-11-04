@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4wdjkcibevqb"]
+
+[ext_resource type="Texture2D" uid="uid://ixhuax03k40y" path="res://player1/tile_0096.png" id="1_lcxh0"]
+[ext_resource type="PackedScene" uid="uid://ujjopf20721q" path="res://scenes/ability/player1/sword_abilitycontroller.tscn" id="1_sadv1"]
+[ext_resource type="Script" path="res://player1/player_1.gd" id="1_u1hnp"]
+[ext_resource type="PackedScene" uid="uid://dv3lv7a431x1a" path="res://scenes/Component/health_component.tscn" id="2_iac31"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dyb1j"]
+radius = 13.1529
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7okqw"]
+radius = 21.095
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r14qx"]
+radius = 14.0357
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iapbj"]
+bg_color = Color(0.219608, 0.211765, 0.207843, 0.917647)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08pf7"]
+bg_color = Color(0.452526, 0.661788, 0.403214, 1)
+border_color = Color(0.131742, 0.131742, 0.131742, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 9
+
+[node name="Player1" type="CharacterBody2D" groups=["player1"]]
+z_as_relative = false
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_u1hnp")
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilitycontroller" parent="AbilityManager" instance=ExtResource("1_sadv1")]
+
+[node name="DamageInteral_TIMER" type="Timer" parent="."]
+one_shot = true
+
+[node name="healthComponent" parent="." instance=ExtResource("2_iac31")]
+Maxhealth = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.84375, 1.75)
+texture = ExtResource("1_lcxh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_dyb1j")
+
+[node name="PickUP" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUP"]
+shape = SubResource("CircleShape2D_7okqw")
+
+[node name="collisionarea2d" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisionarea2d"]
+shape = SubResource("CircleShape2D_r14qx")
+debug_color = Color(0.769101, 0.355265, 0.693936, 0.42)
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -23.0
+offset_right = 69.0
+offset_bottom = -11.0
+scale = Vector2(0.415864, 0.328442)
+theme_override_constants/outline_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_iapbj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_08pf7")
+show_percentage = false
+
+[connection signal="area_entered" from="PickUP" to="." method="_on_pick_up_area_entered"]

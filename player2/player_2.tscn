@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm8ym721eb4jy"]
+
+[ext_resource type="Texture2D" uid="uid://bd6u1n4i3oj60" path="res://player2/tile_0111.png" id="1_csect"]
+[ext_resource type="Script" path="res://player2/player_2.gd" id="1_wa7gx"]
+[ext_resource type="PackedScene" uid="uid://dv3lv7a431x1a" path="res://scenes/Component/health_component.tscn" id="3_14rf1"]
+[ext_resource type="PackedScene" uid="uid://d20arpmoycp7m" path="res://scenes/ability/player2/detectionrangeabilitycontroller.tscn" id="3_x20ka"]
+[ext_resource type="PackedScene" uid="uid://dxu5ejbujdyuq" path="res://scenes/ability/player2/arrow_pointer.tscn" id="4_bv7su"]
+[ext_resource type="Texture2D" uid="uid://dx6oxf7lbw4j2" path="res://assets/environment/LightSprite.png" id="6_i36op"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3aw22"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_roy13"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbqrt"]
+radius = 54.7449
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndjv0"]
+bg_color = Color(0.172115, 0.172115, 0.172115, 0.87451)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.238262, 0.238262, 0.238262, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsa1y"]
+bg_color = Color(0.45098, 0.662745, 0.403922, 0.992157)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4j0vw"]
+radius = 11.0454
+
+[node name="player2" type="CharacterBody2D" groups=["player2"]]
+collision_layer = 4
+collision_mask = 29
+script = ExtResource("1_wa7gx")
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="detectionrangeabilitycontroller" parent="AbilityManager" instance=ExtResource("3_x20ka")]
+
+[node name="healthComponent" parent="." instance=ExtResource("3_14rf1")]
+Maxhealth = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.754054, 0.872348)
+texture = ExtResource("1_csect")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_3aw22")
+debug_color = Color(0.8, 0.384314, 0.47451, 0.419608)
+
+[node name="Pick_hurt" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_hurt"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_roy13")
+
+[node name="Arrow_pointer" parent="." instance=ExtResource("4_bv7su")]
+position = Vector2(8, -4)
+scale = Vector2(0.48, 0.560001)
+
+[node name="detection_layer" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_layer"]
+scale = Vector2(1.48, 1)
+shape = SubResource("CircleShape2D_lbqrt")
+debug_color = Color(0.204275, 0.614542, 0.515867, 0.42)
+
+[node name="DamageInteral_TIMER" type="Timer" parent="."]
+wait_time = 0.208
+one_shot = true
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+offset_left = -11.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 7.0
+scale = Vector2(0.28, 0.16)
+theme_override_styles/background = SubResource("StyleBoxFlat_ndjv0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bsa1y")
+show_percentage = false
+
+[node name="collisionarea2d" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisionarea2d"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_4j0vw")
+debug_color = Color(0.410297, 0.505336, 0.880705, 0.42)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+color = Color(1, 1, 0.52549, 0.517647)
+texture = ExtResource("6_i36op")
+texture_scale = 0.45
+
+[connection signal="area_entered" from="Pick_hurt" to="." method="_on_pick_hurt_area_entered"]
+
+[editable path="AbilityManager/detectionrangeabilitycontroller"]

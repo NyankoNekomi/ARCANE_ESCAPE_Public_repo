@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://buqvb6svjuu1q"]
+
+[ext_resource type="Texture2D" uid="uid://b7671w5bblp2u" path="res://assets/environment/tile_0049.png" id="1_eiror"]
+
+[node name="maze" type="Area2D"]
+collision_mask = 6
+
+[node name="Maze1" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_eiror")
+polygon = PackedVector2Array(47, 1, 47, 31, 115, 31, 115, 54, 199, 52, 188, 87, 115, 86, 113, 125, 104, 126, 108, 86, 45, 85, -1, 87, 0, -1)
+
+[node name="Maze1polygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(47, 1, 47, 31, 115, 31, 115, 54, 197, 53, 186, 86, 115, 86, 113, 126, 104, 126, 108, 86, 45, 85, -1, 87, 0, -1)
+
+[node name="Maze2" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_eiror")
+polygon = PackedVector2Array(193, 67, 171, 136, 135, 155, 51, 150, 0, 148, -2, 212, 143, 213, 183, 172, 195, 158, 246, 215, 251, 187, 209, 148, 203, 119, 230, 86, 314, 60, 489, 73, 489, 0, 376, 0, 212, 0)
+
+[node name="Maze2poly" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(193, 67, 171, 136, 135, 155, 51, 150, 0, 148, -2, 212, 143, 213, 183, 172, 195, 158, 247, 217, 246, 186, 209, 148, 203, 119, 230, 86, 314, 60, 489, 73, 489, 0, 376, 0, 212, 0)
+
+[node name="Maze3" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(48, 144)
+texture = ExtResource("1_eiror")
+polygon = PackedVector2Array(130, 75, 112, 131, 78, 114, 72, 121, 108, 153, 76, 142, -53, 86, -50, 145, 72, 195, -44, 180, -47, 212, 90, 213, 381, 210, 434, 178, 487, 149, 573, 102, 536, 216, 593, 214, 592, 77, 593, -141, 532, -141, 536, 30, 433, 85, 197, 42, 198, 72, 408, 152, 317, 190, 180, 184)
+
+[node name="Maze3poly2" type="CollisionPolygon2D" parent="."]
+position = Vector2(48, 145)
+polygon = PackedVector2Array(130, 75, 112, 131, 78, 114, 72, 121, 108, 153, 76, 142, -53, 86, -50, 145, 72, 195, -44, 180, -47, 212, 90, 213, 381, 210, 434, 178, 487, 149, 573, 102, 536, 216, 593, 214, 592, 77, 593, -141, 532, -141, 536, 30, 433, 85, 197, 42, 198, 72, 408, 152, 317, 190, 180, 184)

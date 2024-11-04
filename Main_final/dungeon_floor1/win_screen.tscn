@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://1une81coyx8f"]
+
+[ext_resource type="FontFile" uid="uid://07ltwgbq47i4" path="res://assets/font/Kenney Pixel.ttf" id="1_4oi22"]
+[ext_resource type="Script" path="res://Main_final/dungeon_floor1/win_screen.gd" id="1_nh1o7"]
+[ext_resource type="PackedScene" uid="uid://d280evop87j24" path="res://gui/replay.tscn" id="2_0yyaf"]
+[ext_resource type="PackedScene" uid="uid://ctns6ouwwd68i" path="res://addons/dialogue_manager/components/title_list.tscn" id="2_3rajv"]
+[ext_resource type="PackedScene" uid="uid://cniki3fob2hrs" path="res://gui/quit.tscn" id="3_f36qt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wednd"]
+font = ExtResource("1_4oi22")
+font_size = 15
+
+[node name="WIN_SCREEN" type="Node2D"]
+script = ExtResource("1_nh1o7")
+title_screen = ExtResource("2_3rajv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 319.0
+offset_bottom = 179.0
+
+[node name="bg" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 179.0
+color = Color(0.207843, 0.223529, 0.337255, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/bg"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 37.0
+offset_right = 270.0
+offset_bottom = 60.0
+text = "Well done on conquering the first level...
+"
+label_settings = SubResource("LabelSettings_wednd")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/bg"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 64.0
+offset_right = 275.0
+offset_bottom = 83.0
+text = "The adventure has only just begun.
+"
+label_settings = SubResource("LabelSettings_wednd")
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/bg"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 86.0
+offset_right = 256.0
+offset_bottom = 105.0
+text = "The journey continues..."
+label_settings = SubResource("LabelSettings_wednd")
+horizontal_alignment = 1
+
+[node name="Replay" parent="CanvasLayer/Control" instance=ExtResource("2_0yyaf")]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 116.0
+offset_right = 176.0
+offset_bottom = 142.0
+
+[node name="Quit" parent="CanvasLayer/Control" instance=ExtResource("3_f36qt")]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 153.0
+offset_right = 171.0
+offset_bottom = 171.0
+
+[connection signal="pressed" from="CanvasLayer/Control/Replay" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Quit" to="." method="_on_quit_pressed"]

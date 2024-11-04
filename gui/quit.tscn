@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cniki3fob2hrs"]
+
+[ext_resource type="Theme" uid="uid://cqht6bswnwyu2" path="res://assets/gui/gyu_default.tres" id="1_n0b8c"]
+[ext_resource type="FontFile" uid="uid://07ltwgbq47i4" path="res://assets/font/Kenney Pixel.ttf" id="2_ye8os"]
+
+[node name="Quit" type="Button"]
+offset_left = 124.0
+offset_top = 132.0
+offset_right = 173.0
+offset_bottom = 150.0
+theme = ExtResource("1_n0b8c")
+theme_override_fonts/font = ExtResource("2_ye8os")
+theme_override_font_sizes/font_size = 21
+text = "QUIT"

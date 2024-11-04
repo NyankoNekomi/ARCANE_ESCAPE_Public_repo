@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5bqa4egl2wtr"]
+
+[ext_resource type="PackedScene" uid="uid://dm8ym721eb4jy" path="res://player2/player_2.tscn" id="1_5gopn"]
+[ext_resource type="PackedScene" uid="uid://c4wdjkcibevqb" path="res://player1/player_1.tscn" id="2_oifq5"]
+[ext_resource type="PackedScene" uid="uid://dmuxtjx5hksor" path="res://scenes/gamecamera/game_camera_2d.tscn" id="3_a60j1"]
+[ext_resource type="PackedScene" uid="uid://whv54ixamegb" path="res://enemy/basic_enemy.tscn" id="5_1et2i"]
+
+[node name="Level_0" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(15.7795, 8.81133)
+color = Color(0.858824, 0.909804, 0.913725, 1)
+
+[node name="player2" parent="." instance=ExtResource("1_5gopn")]
+position = Vector2(125, 46)
+
+[node name="Player1" parent="." instance=ExtResource("2_oifq5")]
+position = Vector2(32, 96)
+
+[node name="GameCamera2D" parent="." instance=ExtResource("3_a60j1")]
+position = Vector2(107, 47)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("5_1et2i")]
+position = Vector2(57, 144)

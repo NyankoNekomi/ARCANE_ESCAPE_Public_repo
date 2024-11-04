@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://d20arpmoycp7m"]
+
+[ext_resource type="Script" path="res://scenes/ability/player2/detectionrangeabilitycontroller.gd" id="1_b7a8t"]
+[ext_resource type="PackedScene" uid="uid://c0iru8bce8ugr" path="res://scenes/ability/player2/enemyattack_player2.tscn" id="1_r3fb4"]
+[ext_resource type="PackedScene" uid="uid://bx4cawxyv0mm8" path="res://scenes/ability/player2/hidden_enemy_detect.tscn" id="3_nlj27"]
+[ext_resource type="PackedScene" uid="uid://b0l7613vinwjb" path="res://scenes/manager/vial_xp_manager.tscn" id="4_rgjpo"]
+
+[node name="Player2_attack" type="Node"]
+script = ExtResource("1_b7a8t")
+attack = ExtResource("1_r3fb4")
+hidden_enemy_detect = ExtResource("3_nlj27")
+
+[node name="VialXP_manager" parent="." instance=ExtResource("4_rgjpo")]

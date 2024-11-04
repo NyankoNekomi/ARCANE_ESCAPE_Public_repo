@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0l7613vinwjb"]
+
+[sub_resource type="GDScript" id="GDScript_bjwx6"]
+script/source = "extends Node
+
+var current_xp_collected = 0
+
+func _ready():
+	GameEvents.increment_vial_collected.connect(_on_vial_collected)
+	GameEvents.spend_vial.connect(_on_vial_spend)
+	
+#func increment_vial_count(number:int):
+	#current_xp_collected += number
+	#print(current_xp_collected)
+	#
+#func spend_vial_count(number:int):
+	#current_xp_collected -=number
+	#print(current_xp_collected)
+	
+func _on_vial_collected(number):
+	current_xp_collected += number
+	#print(current_xp_collected)
+
+func _on_vial_spend(number):
+	current_xp_collected -=number
+	#print(current_xp_collected)
+"
+
+[node name="VialXP_manager" type="Node"]
+script = SubResource("GDScript_bjwx6")

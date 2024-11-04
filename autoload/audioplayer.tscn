@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj7oe1mf672sk"]
+
+[ext_resource type="Script" path="res://autoload/audioplayer.gd" id="1_gs0ka"]
+[ext_resource type="AudioStream" uid="uid://cq4s2say4cvy2" path="res://sounds/ambience_dungeon.wav" id="2_sjaeu"]
+
+[node name="Audioplayer" type="Node"]
+script = ExtResource("1_gs0ka")
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="amb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sjaeu")
+volume_db = -6.222
+autoplay = true

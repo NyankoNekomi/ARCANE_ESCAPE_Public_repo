@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfw1l0oxv825r"]
+
+[ext_resource type="Script" path="res://assets/objects/health_portion.gd" id="1_1pjpd"]
+[ext_resource type="Texture2D" uid="uid://6xxpogoqcvso" path="res://assets/collectable/tile_0116.png" id="1_xe6eo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvb5g"]
+radius = 12.0416
+
+[node name="health_portion" type="Node2D"]
+script = ExtResource("1_1pjpd")
+
+[node name="health_portion" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="health_portion"]
+position = Vector2(0, 1)
+texture = ExtResource("1_xe6eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="health_portion"]
+shape = SubResource("CircleShape2D_jvb5g")
+
+[connection signal="body_entered" from="health_portion" to="." method="_on_health_portion_body_entered"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bibjo0a8rcebh"]
+
+[ext_resource type="Script" path="res://World_Objects/traps.gd" id="1_13g4d"]
+[ext_resource type="Texture2D" uid="uid://bexargjd3mhg3" path="res://assets/objects/tile_0089.png" id="1_ar7as"]
+[ext_resource type="Texture2D" uid="uid://ryk2ke3wvlcd" path="res://assets/objects/tile_0090.png" id="2_glf6y"]
+[ext_resource type="Texture2D" uid="uid://b2yohoge37eou" path="res://assets/objects/tile_0091.png" id="3_2h5dy"]
+[ext_resource type="Texture2D" uid="uid://coi1fkh8fwxi3" path="res://assets/objects/tile_0092.png" id="5_uext2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jwdd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ar7as")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ar7as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_glf6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2h5dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uext2")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or67u"]
+size = Vector2(16.25, 16.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4djk"]
+size = Vector2(13.5, 4)
+
+[node name="Traps" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_13g4d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4jwdd")
+animation = &"Open"
+
+[node name="Traps_trreasurebox" type="Area2D" parent="." groups=["Traps"]]
+collision_mask = 22
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traps_trreasurebox"]
+shape = SubResource("RectangleShape2D_or67u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_u4djk")
+
+[connection signal="body_entered" from="Traps_trreasurebox" to="Traps_trreasurebox" method="_on_body_entered"]

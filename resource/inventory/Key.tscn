@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d083ho5dlchmk"]
+
+[ext_resource type="Texture2D" uid="uid://gtaviqxjbo5b" path="res://resource/inventory/Key 1 - GOLD - .png" id="1_bw7da"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijrxs"]
+radius = 8.06226
+
+[node name="Key" type="Area2D"]
+collision_layer = 16
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_bw7da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ijrxs")

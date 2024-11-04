@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7u7p8l8cgyf6"]
+
+[ext_resource type="Script" path="res://assets/environment/instruction_book/book_inst_poison.gd" id="1_5hi5w"]
+[ext_resource type="Texture2D" uid="uid://dvwh1skivbuqe" path="res://assets/environment/instruction_book/laser-book-pixilart.png" id="1_y4irl"]
+[ext_resource type="FontFile" uid="uid://07ltwgbq47i4" path="res://assets/font/Kenney Pixel.ttf" id="3_6qeq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gotox"]
+radius = 56.2939
+
+[sub_resource type="LabelSettings" id="LabelSettings_bgrdf"]
+font = ExtResource("3_6qeq3")
+font_size = 14
+
+[node name="book_instrction_poison" type="Area2D"]
+position = Vector2(137, 96)
+collision_mask = 6
+script = ExtResource("1_5hi5w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y4irl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gotox")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = -40.0
+offset_top = 26.0
+offset_right = 58.0
+offset_bottom = 41.0
+text = "Press Q to interact"
+label_settings = SubResource("LabelSettings_bgrdf")
+visible_characters_behavior = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

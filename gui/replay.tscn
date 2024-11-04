@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d280evop87j24"]
+
+[ext_resource type="Theme" uid="uid://cqht6bswnwyu2" path="res://assets/gui/gyu_default.tres" id="1_4tpwb"]
+
+[node name="Button" type="Button"]
+offset_left = 114.0
+offset_top = 95.0
+offset_right = 178.0
+offset_bottom = 121.0
+theme = ExtResource("1_4tpwb")
+text = "REPLAY"
